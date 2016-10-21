@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ruleset name="Schakel Marketeers">
+  <description>Coding standards for Schakel Marketeers.</description>
+
+  <!-- Main files -->
+  <file>index.php</file>
+  <file>test/bootstrap.php</file>
+
+  <!-- Site classes -->
+  <file>src</file>
+
+  <!-- Tests should be valid too! -->
+  <file>test</file>
+
+  <!-- Ignore Composer files -->
+  <exclude-pattern>/src/vendor/*</exclude-pattern>
+
+  <!-- Load PSR2 rules -->
+  <rule ref="PSR2" />
+</ruleset>

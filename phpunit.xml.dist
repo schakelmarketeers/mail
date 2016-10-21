@@ -1,0 +1,29 @@
+<phpunit
+    colors="true"
+    verbose="true"
+    processIsolation="false"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    bootstrap="./src/bootstrap.php">
+    <testsuites>
+        <testsuite name="AutoSiero Website">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <directory>src/vendor</directory>
+                <directory>src/lib</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
+    <php>
+      <env name="APP_MODE" value="test"/>
+    </php>
+</phpunit>

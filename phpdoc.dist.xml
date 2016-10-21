@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <title>Schakel Marketeers - Mail</title>
+  <parser>
+    <encoding>utf8</encoding>
+    <markers>
+        <item>TODO</item>
+        <item>FIXME</item>
+        <item>HACK</item>
+        <item>XXX</item>
+    </markers>
+  </parser>
+  <transformer>
+    <target>build/docs</target>
+  </transformer>
+  <transformations>
+    <template name="responsive-twig" />
+  </transformations>
+  <files>
+    <directory>src/*</directory>
+    <directory>tests/*</directory>
+    <ignore>src/vendor/</ignore>
+  </files>
+</phpdoc>
