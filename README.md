@@ -72,3 +72,6 @@ you'll need to do, is load this extra XML file.
 
 <!-- Files -->
 [license]: LICENSE
+
+<!-- External links -->
+[php]: https://secure.php.net/supported-versions.php
