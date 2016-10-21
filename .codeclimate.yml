@@ -1,0 +1,23 @@
+engines:
+    phpcodesniffer:
+        enabled: true
+        config:
+            standard: PSR2
+            file_extensions: php
+    phpmd:
+        enabled: true
+        config:
+            file_extensions: php
+            rulesets: ./phpmd.dist.xml
+    duplication:
+        enabled: true
+        config:
+            languages:
+                - php
+
+ratings:
+    paths:
+        - "src/**.php"
+    exclude_paths:
+        - src/vendor/
+        - build/

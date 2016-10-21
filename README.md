@@ -1,5 +1,9 @@
 # Schakel Marketeers Mail
 
+[![Code Climate rating][shield-cc]][link-cc]
+[![PHP 7.0+][shield-php]][php]
+[![GPL-3.0 license][shield-license]][license]
+
 Mail package that handles inlining CSS, creating plain-text versions of mails
 and tracking when users open and interact with mails.
 
@@ -57,3 +61,14 @@ The `lib/` directory contains ORM XML constructs that map the
 `Schakel\Mail\Tracker\MailTracker` to an object that can be managed by the
 Entity Manager. This makes tracking users easy when you use Doctrine, as all
 you'll need to do, is load this extra XML file.
+
+<!-- Shield images -->
+[shield-cc]: https://img.shields.io/codeclimate/github/SchakelMarketeers/mail.svg
+[shield-license]: https://img.shields.io/github/license/SchakelMarketeers/mail.svg
+[shield-php]: https://img.shields.io/badge/PHP-7.0%2B-8892BF.svg
+
+<!-- Shield links -->
+[link-cc]: https://codeclimate.com/github/SchakelMarketeers/mail
+
+<!-- Files -->
+[license]: LICENSE
