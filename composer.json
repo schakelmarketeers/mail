@@ -3,7 +3,7 @@
     "description": "***REMOVED***",
     "type": "project",
     "homepage": "https://github.com/schakelmarketeers/mail",
-    "license": "GPL-3.0",
+    "license": "LGPL-3.0",
     "authors": [
         {
             "name": "Roelof Roos",
