@@ -33,22 +33,28 @@ pain away, but it gets even easier when you use the `Schakel\Mail\Mail` class
 that comes packed with this library, as it'll install a tracker for you at the
 same time.
 
+The `Schakel\Mail\Mail` class contains a `convertToPHPMailer` method that
+returns a PHPMailer object. Other third-party extensions can easily be added as
+all the required information is scoped to be publicly available.
+
 ### Tracking e-mails
 
-To measure user-interaction, this library has a `Schakel\Mail\Tracker\MailTracker`
-class that handles linking individual e-mails to user interaction. This way you
-can measure when your users click on buttons in e-mails and when images are
-loaded (a fairly good sign that users are reading your e-mail).
+To measure user-interaction, this library has a
+`Schakel\Mail\Tracker\MailTracker` class that handles linking individual
+e-mails to user interaction. This way you can measure when your users click on
+buttons in e-mails and when images are loaded (a fairly good sign that users
+are reading your e-mail).
 
-The `MailTracker` comes with a DCM file to easily use the class in your Doctrine
-Entity Manager.
+The `MailTracker` comes with a DCM file to easily use the class in your
+Doctrine Entity Manager.
 
 ### Use Twig for mail templates
 
-This library also has a package for Twig that'll allow you to twak what URLs
+This library also has a package for Twig that'll allow you to tweak what URLs
 you want to throw through your tracker, and which you want to leave as-is. The
-extension provides two functions (`track_url` and `track_image`) that will change
-the URL to a trackable URL (when properly provided with the required objects).
+extension provides two functions (`track_url` and `track_image`) that will
+change the URL to a trackable URL (when properly provided with the required
+objects).
 
 ## Integrations
 
@@ -63,6 +69,14 @@ The `lib/` directory contains ORM XML constructs that map the
 `Schakel\Mail\Tracker\MailTracker` to an object that can be managed by the
 Entity Manager. This makes tracking users easy when you use Doctrine, as all
 you'll need to do, is load this extra XML file.
+
+### Twig
+
+There's a Twig template plugin available, which you can load using the
+`addPlugin` method on your `TwigEnvironment`. This adds the functions
+`track_url` and `track_image` to your template engine, which will generate
+*relative* urls to your tracking endpoint. See the example for more
+implementation of how to implement the tracker.
 
 <!-- Shield images -->
 [shield-1]: https://img.shields.io/travis/SchakelMarketeers/mail.svg
