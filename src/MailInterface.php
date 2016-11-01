@@ -24,26 +24,22 @@ interface MailInterface
     const E_NO_SUBJECT = 2;
 
     /**
-     * Creates a new object, using the given Tracker as a tracker.
+     * Creates a new Mail object, optionally using the given Tracker as a
+     * tracker. Creates a tracker of it's own if no tracker is specified.
      *
      * @param MailTrackerInterface $tracker
      */
-    public function __construct(MailTrackerInterface $tracker);
+    public function __construct(MailTrackerInterface $tracker = null);
 
     /**
      * Returns a PHPMailer object, which only needs to have it's SMTP settings
      * set. All body content is already generated and all CSS is inlined.
      *
+     * @param bool|null $exceptions Passed to PHPMailer, if the PHPMailer should
+     * use exceptions to handle errors (doesn't by default).
      * @return PHPMailer
      */
-    public function convertToPHPMailer(): \PHPMailer;
-
-    /**
-     * Returns the subject of the mail
-     *
-     * @return string
-     */
-    public function getSubject();
+    public function convertToPHPMailer(bool $exceptions = null): \PHPMailer;
 
     /**
      * Returns the body as HTML
@@ -58,6 +54,13 @@ interface MailInterface
      * @return string
      */
     public function getMailBodyPlainText();
+
+    /**
+     * Returns the subject of the mail
+     *
+     * @return string
+     */
+    public function getSubject();
 
     /**
      * Returns the recipient, as either "j.doe@example.com" or
@@ -96,4 +99,11 @@ interface MailInterface
      * @param string $name
      */
     public function setTo(string $email, string $name = null);
+
+    /**
+     * Sets the tracker that will be used.
+     *
+     * @param MailTrackerInterface $tracker
+     */
+    public function setTracker(MailTrackerInterface $tracker);
 }

@@ -18,7 +18,6 @@
   </transformations>
   <files>
     <directory>src/*</directory>
-    <directory>tests/*</directory>
     <ignore>src/vendor/</ignore>
   </files>
 </phpdoc>

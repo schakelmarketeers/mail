@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <ruleset name="Schakel Marketeers">
-  <description>Coding standards for Schakel Marketeers.</description>
-
   <!-- Main files -->
   <file>index.php</file>
   <file>test/bootstrap.php</file>

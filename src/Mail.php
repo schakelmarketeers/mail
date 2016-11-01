@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Schakel\Mail;
 
 use Schakel\Mail\Tracker\MailTrackerInterface;
+use Schakel\Mail\Tracker\MailTracker;
 
 /**
  * Defines a MailInterface, which can send emails to single users and will
@@ -11,7 +12,7 @@ use Schakel\Mail\Tracker\MailTrackerInterface;
  *
  * @author Roelof Roos <roelof@schakelmarketeers.nl>
  */
-class Mail extends MailInterface
+class Mail implements MailInterface
 {
     protected $to;
 
@@ -21,16 +22,20 @@ class Mail extends MailInterface
 
     protected $tracker;
 
-    public function __construct()
+    public function __construct(MailTrackerInterface $tracker = null)
     {
-        Utils::assertArgumentType($tracker, MailTrackerInterface::class);
+        Utils::assertArgumentType($tracker, 'null', MailTrackerInterface::class);
 
         $this->bodies = [
             'html' => null,
             'plain' => null
         ];
 
-        $this->tracker = new MailTracker;
+        if ($tracker != null) {
+            $this->tracker = $tracker;
+        } else {
+            $this->tracker = new MailTracker;
+        }
     }
 
     /**
@@ -39,7 +44,7 @@ class Mail extends MailInterface
      *
      * @return PHPMailer
      */
-    public function convertToPHPMailer(): \PHPMailer
+    public function convertToPHPMailer(bool $exceptions = null): \PHPMailer
     {
         if ($this->to === null) {
             throw new \UnexpectedValueException('E-mail has no recipient', self::E_NO_TO);
@@ -48,9 +53,14 @@ class Mail extends MailInterface
             throw new \UnexpectedValueException('E-mail has no subject', self::E_NO_SUBJECT);
         }
 
-        $mailer = new \PHPMailer;
+        $mailer = new \PHPMailer($exceptions);
         $mailer->Subject = $this->getSubject();
-        $mailer->addAddress($this->to);
+
+        if (preg_match('/^(.+?) <(.+)>$/', $this->getTo(), $matches)) {
+            $mailer->addAddress($matches[2], $matches[1]);
+        } else {
+            $mailer->addAddress($this->getTo());
+        }
 
         $mailer->isHtml(true);
         $mailer->Body = $this->getMailBody();
@@ -119,6 +129,10 @@ class Mail extends MailInterface
     {
         Utils::assertArgumentType($body, 'string');
 
+        if (empty(trim($body))) {
+            throw new \InvalidArgumentException('Body can not be empty!');
+        }
+
         $this->bodies['html'] = MailUtils::createEmailHtml($body);
         $this->bodies['plain'] = MailUtils::createEmailPlain($body);
     }
@@ -152,7 +166,7 @@ class Mail extends MailInterface
             $name = null;
         }
 
-        $this->tracker->setTo($email);
+        $this->tracker->setEmail($email);
         if ($name !== null) {
             $this->to = "{$name} <{$email}>";
         } else {
