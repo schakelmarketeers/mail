@@ -1,8 +1,10 @@
 # Schakel Marketeers Mail
 
-[![Code Climate rating][shield-cc]][link-cc]
-[![PHP 7.0+][shield-php]][php]
-[![GPL-3.0 license][shield-license]][license]
+[![Travis CI build status][shield-1]][link-1]
+[![Code Climate rating][shield-2]][link-2]
+[![Code Coverage][shield-3]][link-3]
+[![PHP 7.0+][shield-4]][php]
+[![GPL-3.0 license][shield-5]][license]
 
 Mail package that handles inlining CSS, creating plain-text versions of mails
 and tracking when users open and interact with mails.
@@ -63,12 +65,16 @@ Entity Manager. This makes tracking users easy when you use Doctrine, as all
 you'll need to do, is load this extra XML file.
 
 <!-- Shield images -->
-[shield-cc]: https://img.shields.io/codeclimate/github/SchakelMarketeers/mail.svg
-[shield-license]: https://img.shields.io/github/license/SchakelMarketeers/mail.svg
-[shield-php]: https://img.shields.io/badge/PHP-7.0%2B-8892BF.svg
+[shield-1]: https://img.shields.io/travis/SchakelMarketeers/mail.svg
+[shield-2]: https://img.shields.io/codeclimate/github/SchakelMarketeers/mail.svg
+[shield-3]: https://img.shields.io/codeclimate/coverage/github/SchakelMarketeers/mail.svg
+[shield-4]: https://img.shields.io/badge/PHP-7.0%2B-8892BF.svg
+[shield-5]: https://img.shields.io/github/license/SchakelMarketeers/mail.svg
 
 <!-- Shield links -->
-[link-cc]: https://codeclimate.com/github/SchakelMarketeers/mail
+[link-1]: https://travis-ci.org/SchakelMarketeers/mail
+[link-2]: https://codeclimate.com/github/SchakelMarketeers/mail
+[link-3]: https://codeclimate.com/github/SchakelMarketeers/mail/coverage
 
 <!-- Files -->
 [license]: LICENSE
