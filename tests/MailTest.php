@@ -37,7 +37,6 @@ class MailTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Schakel\Mail\Mail::convertToPHPMailer
-     * @requires extension mbstring
      */
     public function testConvertToPHPMailerWithEmailAndName()
     {
@@ -79,7 +78,6 @@ class MailTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Schakel\Mail\Mail::convertToPHPMailer
-     * @depends testConvertToPHPMailerWithEmailAndName
      */
     public function testConvertToPHPMailerWithoutRecipient()
     {
@@ -95,7 +93,6 @@ class MailTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Schakel\Mail\Mail::convertToPHPMailer
-     * @depends testConvertToPHPMailerWithEmailAndName
      */
     public function testConvertToPHPMailerWithoutSubject()
     {
