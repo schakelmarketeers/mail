@@ -114,9 +114,10 @@ class MailTracker implements MailTrackerInterface
      * @var DateTime $sent
      * @throws TypeError if $sent is not of type DateTime
      */
-    public function setSent($sent)
+    public function setSent(\DateTime $sent)
     {
-        Utils::assertArgumentType($sent, 'null', 'date');
+        Utils::assertArgumentType($sent, 'date');
+
         $this->sent = $sent;
     }
 
@@ -124,9 +125,10 @@ class MailTracker implements MailTrackerInterface
      * @var DateTime $opened
      * @throws TypeError if $opened is not of type DateTime
      */
-    public function setOpened($opened)
+    public function setOpened(\DateTime $opened)
     {
-        Utils::assertArgumentType($opened, 'null', 'date');
+        Utils::assertArgumentType($opened, 'date');
+
         $this->opened = $opened;
     }
 
@@ -134,9 +136,9 @@ class MailTracker implements MailTrackerInterface
      * @var DateTime $clicked
      * @throws InvalidArgumentException if $clicked is not of type DateTime
      */
-    public function setClicked($clicked)
+    public function setClicked(\DateTime $clicked)
     {
-        Utils::assertArgumentType($clicked, 'null', 'date');
+        Utils::assertArgumentType($clicked, 'date');
         $this->clicked = $clicked;
     }
 }

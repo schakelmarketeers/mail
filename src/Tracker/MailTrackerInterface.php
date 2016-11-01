@@ -75,7 +75,7 @@ interface MailTrackerInterface
      * @var string $subject
      * @throws TypeError if $subject is not of type string
      */
-    public function setSubject(string $subject);
+    public function setSubject($subject);
 
     /**
      * Sets the date at which the mail associated with this tracker was sent.
