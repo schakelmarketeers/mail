@@ -42,7 +42,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Schakel\\Test\\Mail\\": "tests"
+            "Schakel\\Mail\\Test\\": "tests"
         }
     },
     "config": {
