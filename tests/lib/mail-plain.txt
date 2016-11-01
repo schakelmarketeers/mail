@@ -1,0 +1,28 @@
+ 
+
+HELLO WORLD!
+
+Below are some sentences from the Faculty of Computer Science and
+Technology of the University of Cambridge. More dummy-sentences can be
+found here
+[http://www.cl.cam.ac.uk/~mgk25/ucs/examples/quickbrown.txt].
+
+ENGLISH
+
+The quick brown fox jumps over the lazy dog
+
+GREEK
+
+Γαζέες καὶ μυρτιὲς δὲν θὰ βρῶ πιὰ
+στὸ χρυσαφὶ ξέφωτο Ξεσκεπάζω τὴν
+ψυχοφθόρα βδελυγμία
+
+SPANISH
+
+El pingüino Wenceslao hizo kilómetros bajo exhaustiva lluvia y
+frío, añoraba a su querido cachorro.
+
+AND AN IMAGE
+
+[DuckDuckGo]
+ 
