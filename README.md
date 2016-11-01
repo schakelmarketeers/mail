@@ -58,19 +58,19 @@ objects).
 
 ## Integrations
 
-### AltoRouter
+### [AltoRouter][integration-1]
 
 The examples and the attached `Schakel\Mail\Router\AltoRouterTrait` make it a
 breeze to use this library with your AltoRouter installation.
 
-### Doctrine2
+### [Doctrine2][integration-2]
 
 The `lib/` directory contains ORM XML constructs that map the
 `Schakel\Mail\Tracker\MailTracker` to an object that can be managed by the
 Entity Manager. This makes tracking users easy when you use Doctrine, as all
 you'll need to do, is load this extra XML file.
 
-### Twig
+### [Twig][integration-3]
 
 There's a Twig template plugin available, which you can load using the
 `addPlugin` method on your `TwigEnvironment`. This adds the functions
@@ -95,3 +95,6 @@ implementation of how to implement the tracker.
 
 <!-- External links -->
 [php]: https://secure.php.net/supported-versions.php
+[integration-1]: http://altorouter.com/
+[integration-2]: http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/
+[integration-3]: http://twig.sensiolabs.org/
