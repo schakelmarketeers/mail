@@ -1,0 +1,3 @@
+#
+# Treat composer.lock as a binary
+composer.lock binary
