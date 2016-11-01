@@ -14,14 +14,29 @@ use Schakel\Mail\Tracker\MailTracker;
  */
 class Mail implements MailInterface
 {
+    /**
+     * @var string Recipient
+     */
     protected $to;
 
+    /**
+     * @var string subject of the mail
+     */
     protected $subject;
 
+    /**
+     * @var array HTML and plain-text mail bodies
+     */
     protected $bodies;
 
+    /**
+     * @var MailTrackerInterface Mail tracker
+     */
     protected $tracker;
 
+    /**
+     * {@inheritdoc}
+     */
     public function __construct(MailTrackerInterface $tracker = null)
     {
         Utils::assertArgumentType($tracker, 'null', MailTrackerInterface::class);
@@ -39,10 +54,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Returns a PHPMailer object, which only needs to have it's SMTP settings
-     * set. All body content is already generated and all CSS is inlined.
-     *
-     * @return PHPMailer
+     * {@inheritdoc}
      */
     public function convertToPHPMailer(bool $exceptions = null): \PHPMailer
     {
@@ -70,9 +82,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Returns the body as HTML
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getMailBody()
     {
@@ -80,9 +90,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Returns the body as plain text
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getMailBodyPlainText()
     {
@@ -90,9 +98,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Returns the subject of the mail
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getSubject()
     {
@@ -100,10 +106,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Returns the recipient, as either "j.doe@example.com" or
-     * "John Doe <j.doe@example.com>".
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getTo()
     {
@@ -111,9 +114,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Returns the tracker that is being used.
-     *
-     * @param MailTrackerInterface
+     * {@inheritdoc}
      */
     public function getTracker(): MailTrackerInterface
     {
@@ -121,9 +122,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Sets the mail body, send HTML here.
-     *
-     * @param string $body
+     * {@inheritdoc}
      */
     public function setMailBody(string $body)
     {
@@ -138,9 +137,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Sets the subject of the e-mail.
-     *
-     * @param string $subject
+     * {@inheritdoc}
      */
     public function setSubject(string $subject)
     {
@@ -151,11 +148,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Sets the recipient. The first argument MUST be a valid e-mail address.
-     * Specifying a name is optional, but recommended.
-     *
-     * @param string $email
-     * @param string $name
+     * {@inheritdoc}
      */
     public function setTo(string $email, string $name = null)
     {
@@ -175,9 +168,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Sets the tracker that will be used.
-     *
-     * @param MailTrackerInterface $tracker
+     * {@inheritdoc}
      */
     public function setTracker(MailTrackerInterface $tracker)
     {
