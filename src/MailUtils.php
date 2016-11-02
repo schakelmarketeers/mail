@@ -36,7 +36,7 @@ class MailUtils
 
         // If we cannot parse the HTML e-mail, return it as-is
         if (!$parseCompleted) {
-            return $html;
+            return $html; // @codeCoverageIgnore
         }
 
         // Create a variable for all CSS in the page and a variable for all
@@ -50,7 +50,7 @@ class MailUtils
         foreach ($styleTags as $node) {
             // If we somehow got a non-DOM element, continue
             if (!$node instanceof \DOMNode) {
-                continue;
+                continue; // @codeCoverageIgnore
             }
 
             // If the node isn't empty, add the contents
@@ -72,8 +72,9 @@ class MailUtils
         if ($headNodes->length > 0) {
             $headNode = $headNodes->item(0);
         } else {
-            $headNode = $dom->createElement('head');
-            $dom->insertBefore($headNode, $dom->firstChild);
+            // @codeCoverageIgnoreStart
+            throw new \RuntimeException('Cannot find <head> tag in e-mail.');
+            // @codeCoverageIgnoreEnd
         }
 
         // And add a short link back to this project.
