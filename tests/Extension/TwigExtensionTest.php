@@ -120,7 +120,7 @@ class TwigExtensionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Shakel\Mail\Extension\TwigExtension::getLinkRoute
+     * @covers Schakel\Mail\Extension\TwigExtension::getLinkRoute
      */
     public function testTrackUrl()
     {
@@ -132,7 +132,7 @@ class TwigExtensionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Shakel\Mail\Extension\TwigExtension::getImageRoute
+     * @covers Schakel\Mail\Extension\TwigExtension::getImageRoute
      */
     public function testTrackImage()
     {
