@@ -52,6 +52,7 @@ class MailTrackerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Schakel\Mail\Tracker\MailTracker::getEmail
+     * @covers Schakel\Mail\Tracker\MailTracker::setEmail
      * @dataProvider provideEmails
      */
     public function testSetEmail($value, $valid)
@@ -61,6 +62,7 @@ class MailTrackerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Schakel\Mail\Tracker\MailTracker::getSubject
+     * @covers Schakel\Mail\Tracker\MailTracker::setSubject
      * @dataProvider provideSubjects
      */
     public function testSetSubject($value, $valid)
@@ -70,6 +72,7 @@ class MailTrackerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Schakel\Mail\Tracker\MailTracker::getSent
+     * @covers Schakel\Mail\Tracker\MailTracker::setSent
      * @dataProvider provideDates
      */
     public function testSetSent($value, $valid)
@@ -79,6 +82,7 @@ class MailTrackerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Schakel\Mail\Tracker\MailTracker::getOpened
+     * @covers Schakel\Mail\Tracker\MailTracker::setOpened
      * @dataProvider provideDates
      */
     public function testSetOpened($value, $valid)
@@ -88,6 +92,7 @@ class MailTrackerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Schakel\Mail\Tracker\MailTracker::getClicked
+     * @covers Schakel\Mail\Tracker\MailTracker::setClicked
      * @dataProvider provideDates
      */
     public function testSetClicked($value, $valid)
