@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Schakel\Mail\Router;
 
+use Schakel\Mail\Tracker\MailTrackerInterface;
+
 /**
  * A trait that incorporates the AltoRouter's `generate` method to generate a
  * tracking url.
@@ -33,6 +35,8 @@ trait AltoRouterTrait
             } catch (\Exception $e) {
                 $url = $path;
             }
+        } else {
+            $url = $path;
         }
 
         // Try to use the 'track' route to build a tracking URL

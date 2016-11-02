@@ -14,6 +14,6 @@ class MailTracker extends BaseMailTracker
 {
     public function setId(int $id)
     {
-        return $this->id;
+        $this->id = $id;
     }
 }
