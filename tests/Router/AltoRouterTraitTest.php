@@ -174,4 +174,39 @@ class AltoRouterTraitTest extends \PHPUnit_Framework_TestCase
             $routeName
         ));
     }
+
+    /**
+     * Tests what would happen when a URL is recieved and there is no route
+     * named 'track'
+     *
+     * @covers Schakel\Mail\Router\AltoRouterTrait::generateTrackingUrl
+     */
+    public function testNoTrackRoute()
+    {
+        // Set variables
+        $trackerId = rand(1234, 5678);
+        $linkType = rand(1, 10);
+        $url = sprintf(
+            'https://example.com/random-page/%s/',
+            bin2hex(random_bytes(8))
+        );
+
+        // Get mocks
+        $router = $this->getTrait();
+        $tracker = $this->getTracker($trackerId);
+
+        // Set expectations
+        $router->expects($this->once())
+            ->method('generate')
+            ->with(
+                $this->equalTo('track')
+            )
+            ->will($this->throwException(new \RuntimeException));
+
+        $this->assertEquals($url, $router->generateTrackingUrl(
+            $tracker,
+            $linkType,
+            $url
+        ));
+    }
 }
