@@ -55,7 +55,7 @@ class TwigExtension extends \Twig_Extension
      * @param array $args Optional arguments to pas to the router
      * @return string Absolute link to the resource.
      */
-    public function getRoute($path, array $args = []): string
+    public function getLinkRoute($path, array $args = []): string
     {
         return $this->router->generateTrackingUrl(
             $this->tracker,

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Schakel\Mail\Router;
 
+use Schakel\Mail\Tracker\MailTrackerInterface;
+
 /**
  * Describes a 'generateTrackingUrl' method that is used to convert simple
  * paths and route pointers to endpoints that can be tracked.
