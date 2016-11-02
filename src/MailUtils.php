@@ -39,44 +39,69 @@ class MailUtils
             return $html;
         }
 
+        // Create a variable for all CSS in the page and a variable for all
+        // style nodes that have been appended to the $css variable, which will
+        // then be removed.
         $css = '';
+        $removeList = [];
 
-        // Retrieve all style tags
+        // Retrieve all style tags and loop through them
         $styleTags = $dom->getElementsByTagName("style");
-        foreach ($styleTags as $tag) {
+        foreach ($styleTags as $node) {
             // If we somehow got a non-DOM element, continue
-            if (!$tag instanceof \DOMNode) {
+            if (!$node instanceof \DOMNode) {
                 continue;
             }
 
-            // Get the content of the node
-            $content = $tag->nodeValue;
-            if (!empty($content)) {
-                $css .= $content . PHP_EOL;
+            // If the node isn't empty, add the contents
+            if (!empty($node->nodeValue)) {
+                $css .= $node->nodeValue . PHP_EOL;
             }
 
-            // And remove the node.
-            $tag->parentNode->removeChild($tag);
+            // And add the node to the removal list.
+            $removeList[] = $node;
         }
+
+        // Remove all nodes in the $removeList
+        foreach ($removeList as $node) {
+            $node->parentNode->removeChild($node);
+        }
+
+        // Find a head tag (or create one))
+        $headNodes = $dom->getElementsByTagName("head");
+        if ($headNodes->length > 0) {
+            $headNode = $headNodes->item(0);
+        } else {
+            $headNode = $dom->createElement('head');
+            $dom->insertBefore($headNode, $dom->firstChild);
+        }
+
+        // And add a short link back to this project.
+        $generator = $dom->createElement('meta');
+        $generator->setAttribute('name', 'generator');
+        $generator->setAttribute(
+            'value',
+            'Schakel Marketeers Mail, https://github.com/SchakelMarketeers/mail'
+        );
+        $headNode->appendChild($generator);
 
         // Adds all CSS to the head, in case a proper e-mail reader actually
-        // understands how HTML works (looking at you, Thunderbird)
+        // understands how HTML works.
         if (!empty($css)) {
-            $newStyle = $dom->createElement("style");
-            $newStyle->setAttribute("type", "text/css");
-            $newStyle->nodeValue = $css;
+            $styleNode = $dom->createElement("style");
+            $styleNode->setAttribute("type", "text/css");
+            $styleNode->setAttribute("media", "all");
 
-            $heads = $dom->getElementsByTagName("head");
-            if ($heads->length > 0) {
-                $heads->item(0)->appendChild($newStyle);
-            }
+            $styleNode->nodeValue = $css;
+
+            $headNode->appendChild($styleNode);
         }
 
-        // Returns HTML that's a complete godridden mess
+        // Convert the DOMDocument back to HTML
         $html = $dom->saveHTML();
 
-        // Now ask the Emogrifier to inline al CSS into HTML nodes.
-        $emogrifier = new Emogrifier();
+        // Now ask the Emogrifier to inline al CSS into the HTML nodes.
+        $emogrifier = new Emogrifier;
         $emogrifier->disableStyleBlocksParsing();
         $emogrifier->setHtml($html);
         $emogrifier->setCss($css);
