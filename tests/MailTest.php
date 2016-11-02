@@ -118,9 +118,9 @@ class MailTest extends \PHPUnit_Framework_TestCase
     public function testMailBody()
     {
         $templates = [
-            'base' => __DIR__ . '/Lib/mail.html',
-            'html' => __DIR__ . '/Lib/mail-emo.html',
-            'text' => __DIR__ . '/Lib/mail-plain.txt'
+            'base' => __DIR__ . '/Lib/mail-simple.html',
+            'html' => __DIR__ . '/Lib/mail-simple-emo.html',
+            'text' => __DIR__ . '/Lib/mail-simple-plain.txt'
         ];
 
         foreach ($templates as $key => $value) {
