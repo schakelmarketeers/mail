@@ -43,8 +43,10 @@ class TwigExtensionTest extends \PHPUnit_Framework_TestCase
             $name
         ));
     }
+
     /**
      * @covers Schakel\Mail\Extension\TwigExtension::__construct
+     * @covers Schakel\Mail\Extension\TwigExtension::getFunctions
      */
     public function testConstructor()
     {
@@ -72,6 +74,21 @@ class TwigExtensionTest extends \PHPUnit_Framework_TestCase
             $this->assertInstanceOf('Twig_SimpleFunction', $function);
             $this->assertContains($function->getName(), self::$extensionFunctions);
         }
+    }
+
+    /**
+     * @covers Schakel\Mail\Extension\TwigExtension::getName
+     */
+    public function testGetName()
+    {
+        $tracker = new MailTracker;
+        $router = new UrlRouter;
+
+        $obj = new TwigExtension($router, $tracker);
+        $this->assertEquals(
+            'Schakel Marketeers Mail Tracker Extension',
+            $obj->getName()
+        );
     }
 
     protected function runTwigFunctionTest(
