@@ -56,6 +56,10 @@ extension provides two functions (`track_url` and `track_image`) that will
 change the URL to a trackable URL (when properly provided with the required
 objects).
 
+---
+If you want implementation instructions, please have a look at the
+[`/doc`][docs] folder.
+
 ## Integrations
 
 ### [AltoRouter][integration-1]
@@ -92,6 +96,7 @@ implementation of how to implement the tracker.
 
 <!-- Files -->
 [license]: LICENSE
+[docs]: docs/
 
 <!-- External links -->
 [php]: https://secure.php.net/supported-versions.php
