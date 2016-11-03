@@ -17,7 +17,7 @@
         "email": "roelof@schakelmarketeers.nl"
     },
     "require": {
-        "php": "^5.5 || ^7.0",
+        "php": "^7.0",
         "html2text/html2text": "^4.0",
         "pelago/emogrifier": "^1.1",
         "phpmailer/phpmailer": "^5.2"
