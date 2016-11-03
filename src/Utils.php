@@ -50,8 +50,6 @@ class Utils
                 return $value instanceof \DateTime;
             case 'array':
                 return is_array($value);
-            case 'object':
-                return is_object($value);
             case 'scalar':
                 return is_scalar($value);
             case 'email':
