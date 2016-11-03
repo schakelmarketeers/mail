@@ -1,6 +1,6 @@
 {
     "name": "schakel/mail",
-    "description": "***REMOVED***",
+    "description": "Advanced mail tracking using Twig and PHPMailer",
     "type": "project",
     "homepage": "https://github.com/schakelmarketeers/mail",
     "license": "LGPL-3.0",
