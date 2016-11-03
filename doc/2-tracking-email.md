@@ -52,9 +52,9 @@ As you can read above, the tracker has a couple of features:
 
 The code below would do the above tasks, one by one.
 
-:warning: The code below is example code and is **not secure**
-<sup>[[1][sec-1]][[2][sec-2]]</sup>. You're free to use it as a foundation for your
-tracker implementation, but usage in production is **strongly disadvised**.
+> :warning: The code below is example code and is **not secure**
+> <sup>[[1][sec-1]][[2][sec-2]]</sup>. You're free to use it as a foundation for your
+> tracker implementation, but usage in production is **strongly disadvised**.
 
 ```php
 <?php
