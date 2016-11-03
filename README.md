@@ -96,7 +96,7 @@ implementation of how to implement the tracker.
 
 <!-- Files -->
 [license]: LICENSE
-[docs]: docs/
+[docs]: doc/
 
 <!-- External links -->
 [php]: https://secure.php.net/supported-versions.php
